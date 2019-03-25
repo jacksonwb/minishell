@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbeall <jbeall@student.42.us.org>          +#+  +:+       +#+        */
+/*   By: jackson <jbeall@student.42.us.org>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 17:21:52 by jbeall            #+#    #+#             */
-/*   Updated: 2019/03/19 11:27:41 by jbeall           ###   ########.fr       */
+/*   Updated: 2019/03/23 12:26:53 by jackson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <signal.h>
 # include <fcntl.h>
 # include <sys/stat.h>
+# include <sys/types.h>
+#include <sys/wait.h>
 # include <errno.h>
 # include "libft.h"
 # include "ft_printf.h"

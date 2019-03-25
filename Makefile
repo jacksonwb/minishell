@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jbeall <jbeall@student.42.us.org>          +#+  +:+       +#+         #
+#    By: jackson <jbeall@student.42.us.org>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/03 12:06:08 by jbeall            #+#    #+#              #
-#    Updated: 2019/03/18 20:07:38 by jbeall           ###   ########.fr        #
+#    Updated: 2019/03/24 20:39:53 by jackson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,20 +48,22 @@ COM_COLOR   = \033[92m
 NO_COLOR    = \033[m
 
 #TEXT
-COM_STRING  = "$(NAME) Compilation Successful"
-CLEAN_OBJ	= "Cleaned $(NAME) Objects"
-CLEAN_NAME	= "Cleaned $(NAME) Binary"
+COM_STRING  = "$(NAME) compilation successful"
+CLEAN_OBJ	= "cleaned $(NAME) objects"
+CLEAN_NAME	= "cleaned $(NAME) binary"
 
 #===================================== RULES ==================================#
 
 all: lib obj $(NAME)
 
 $(NAME): $(OBJ)
-	@gcc $(FLAGS) $(LIBFT) -g $^ -o $@
-	@echo "$(COM_COLOR)$(COM_STRING)$(NO_COLOR)"
+	@echo "Building Objects..."
+	@clang $(FLAGS) $^ $(LIBFT) -o $@
+	@echo "$(COM_COLOR) $(COM_STRING) $(NO_COLOR)"
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	@gcc $(FLAGS) $(INC) -g -c $< -o $@
+	@clang $(FLAGS) $(INC) -g -c $< -o $@
+	
 
 obj:
 	@mkdir -p $(OBJ_DIR)
@@ -77,12 +79,12 @@ fclean: clean libfclean
 #LIBFT
 
 lib:
-	@make -C ./libft all
+	@make -C ./libft all --no-print-directory
 
 libfclean:
-	@make -C libft fclean
+	@make -C libft fclean --no-print-directory
 
 libclean:
-	@make -C libft clean
+	@make -C libft clean --no-print-directory
 
 re: fclean all
