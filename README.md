@@ -13,7 +13,7 @@ The following built-ins are provided:
 * env
 * exit
 
-~ and $ expansion is managed
+`~` and `$` expansion is managed
 
 Muliple commands can be executed by seperating statements with a `;`
 
