@@ -6,7 +6,7 @@
 /*   By: jbeall <jbeall@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 20:18:11 by jbeall            #+#    #+#             */
-/*   Updated: 2019/03/18 20:06:39 by jbeall           ###   ########.fr       */
+/*   Updated: 2019/04/08 16:07:37 by jbeall           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,10 @@ t_command	*msh_parse(char *input)
 	split = remove_invalid_args(split);
 	trim_args(split);
 	if (!split[0])
+	{
+		free(split);
 		return (NULL);
+	}
 	cmd = (t_command*)ft_memalloc(sizeof(t_command));
 	cmd->name = split[0];
 	cmd->argv = split;
