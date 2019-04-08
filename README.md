@@ -1,6 +1,8 @@
 # minishell
 A (mini) shell application built as an excersize to better understand process creation and management, forking, and signals.
 
+![msh](images/msh.gif)
+
 ## Build
 `git clone --recurse-submodules https://github.com/jacksonwb/minishell.git; cd minishell; make`
 
